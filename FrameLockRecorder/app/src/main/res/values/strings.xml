@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FrameLock Recorder</string>
+    <string name="channel_recording_name">Gameplay Recording</string>
+    <string name="channel_recording_desc">Active screen and audio capture status</string>
+</resources>
