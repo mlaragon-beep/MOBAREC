@@ -174,7 +174,10 @@ class ScreenRecordService : Service() {
         }
 
         val projectionMgr = getSystemService(Context.MEDIA_PROJECTION_SERVICE) as MediaProjectionManager
-        val projection = projectionMgr.getMediaProjection(resultCode, resultData)
+        val projection = projectionMgr.getMediaProjection(resultCode, resultData) ?: run {
+    stopForeground(STOP_FOREGROUND_REMOVE)
+    stopSelf()
+    return
         projection.registerCallback(projectionCallback, Handler(Looper.getMainLooper()))
         mediaProjection = projection
 
